@@ -1,0 +1,11 @@
+GOROOT=/usr/local/go
+GOBIN=$(GOROOT)/bin
+GOCMD=$(GOBIN)/go
+
+SOURCES=webby.go
+EXECUTABLE=webby
+
+all: $(SOURCES) $(EXECUTABLE)
+
+$(EXECUTABLE): $(SOURCES)
+	$(GOCMD) build $(SOURCES)
