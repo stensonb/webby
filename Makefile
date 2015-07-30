@@ -1,4 +1,4 @@
-GOROOT=/usr/local/go
+GOROOT=/home/bryan/go
 GOBIN=$(GOROOT)/bin
 GOCMD=$(GOBIN)/go
 
@@ -8,4 +8,7 @@ EXECUTABLE=webby
 all: $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(SOURCES)
-	$(GOCMD) build $(SOURCES)
+        GOROOT=$(GOROOT) CGO_ENABLED=0 GOOS=linux $(GOCMD) build -a -installsuffix cgo $(SOURCES)
+
+clean:
+	rm -rf $(EXECUTABLE)
